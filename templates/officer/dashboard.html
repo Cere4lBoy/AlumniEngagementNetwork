@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CSO Dashboard | AENS</title>
+
+  <!-- Link your CSS -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+  <!-- TOP BAR -->
+  <div class="topbar">
+    <div class="brand">
+      <!-- WHITE LOGO -->
+      <img src="{{ url_for('static', filename='images/logo.png') }}" alt="AENS Logo" height="40">
+
+      <div>
+        <div class="brand-title">Alumni Engagement & Networking System</div>
+        <div class="brand-subtitle">Career Services Officer</div>
+      </div>
+    </div>
+
+    <a href="#" class="topbar-link">Logout</a>
+  </div>
+
+  <!-- LAYOUT -->
+  <div class="layout">
+
+    <!-- SIDEBAR -->
+    <div class="sidebar">
+
+      <div class="sidebar-profile">
+        <div class="avatar">CS</div>
+        <div class="sidebar-name">Career Officer</div>
+        <div class="sidebar-role">Career Services Officer</div>
+      </div>
+
+<div class="nav">
+  <a class="nav-item" href="/officer/dashboard">
+    <span class="nav-icon">🏠</span> Dashboard
+  </a>
+
+  <a class="nav-item" href="/officer/jobs/create_job">
+    <span class="nav-icon">➕</span> Create Job
+  </a>
+
+  <a class="nav-item" href="/officer/jobs/edit_job">
+    <span class="nav-icon">✏️</span> Edit / Remove Job
+  </a>
+
+  <a class="nav-item" href="/officer/applications">
+    <span class="nav-icon">📄</span> Applications
+  </a>
+
+  <a class="nav-item" href="/officer/mentorship_review">
+    <span class="nav-icon">🤝</span> Mentorship
+  </a>
+
+  <a class="nav-item" href="/officer/notifications">
+    <span class="nav-icon">🔔</span> Notifications
+  </a>
+</div>
+
+
+
+      <div class="sidebar-footer">
+        <button class="btn btn-primary btn-full">+ Quick Action</button>
+      </div>
+
+    </div>
+
+    <!-- CONTENT -->
+    <div class="content">
+
+      <div class="content-header">
+        <div>
+          <div class="page-title">Dashboard</div>
+          <div class="page-subtitle">Overview of job postings, applications, mentorship requests and system activity.</div>
+        </div>
+      </div>
+
+      <!-- STATS -->
+      <div class="stats">
+        <div class="card stat-card">
+          <div class="stat-label">Active Job Postings</div>
+          <div class="stat-value">12</div>
+          <div class="stat-hint">Published & visible</div>
+        </div>
+
+        <div class="card stat-card">
+          <div class="stat-label">Total Applications</div>
+          <div class="stat-value">86</div>
+          <div class="stat-hint">Across all jobs</div>
+        </div>
+
+        <div class="card stat-card">
+          <div class="stat-label">Pending Mentorship</div>
+          <div class="stat-value">7</div>
+          <div class="stat-hint">Awaiting approval</div>
+        </div>
+
+        <div class="card stat-card">
+          <div class="stat-label">Alumni Participation</div>
+          <div class="stat-value">64%</div>
+          <div class="stat-hint">Events + Mentorship</div>
+        </div>
+      </div>
+
+      <!-- GRID 2 (LEFT TABLE + RIGHT LIST) -->
+      <div class="grid-2">
+
+        <!-- RECENT JOBS TABLE -->
+        <div class="card">
+          <div class="card-header">
+            <div class="card-title">Recent Job Postings</div>
+            <a class="link" href="/officer/jobs/edit">Manage</a>
+          </div>
+
+          <div class="table-wrap">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Title</th>
+                  <th>Company</th>
+                  <th>Deadline</th>
+                  <th class="text-right">Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Software Engineer Intern</td>
+                  <td>TechNova</td>
+                  <td>15 Feb 2026</td>
+                  <td class="text-right"><span class="badge badge-green">Published</span></td>
+                </tr>
+                <tr>
+                  <td>Data Analyst</td>
+                  <td>InsightLab</td>
+                  <td>18 Feb 2026</td>
+                  <td class="text-right"><span class="badge badge-yellow">Draft</span></td>
+                </tr>
+                <tr>
+                  <td>UI/UX Designer</td>
+                  <td>PixelWorks</td>
+                  <td>25 Feb 2026</td>
+                  <td class="text-right"><span class="badge badge-green">Published</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- PENDING TASKS LIST -->
+        <div class="card">
+          <div class="card-header">
+            <div class="card-title">Pending Actions</div>
+            <a class="link" href="mentorship_review.html">View All</a>
+          </div>
+
+          <div class="list">
+            <div class="list-item">
+              <div>
+                <div class="list-title">Mentorship Request (Student)</div>
+                <div class="list-subtitle">Waiting for approval</div>
+              </div>
+              <div class="list-actions">
+                <button class="btn btn-secondary btn-small">Reject</button>
+                <button class="btn btn-primary btn-small">Approve</button>
+              </div>
+            </div>
+
+            <div class="list-item">
+              <div>
+                <div class="list-title">New Applications (12)</div>
+                <div class="list-subtitle">Review applicants</div>
+              </div>
+              <div class="list-actions">
+                <a class="btn btn-primary btn-small" href="/officer/applications">Open</a>
+
+              </div>
+            </div>
+
+            <div class="list-item">
+              <div>
+                <div class="list-title">Career Notification</div>
+                <div class="list-subtitle">Send job alert to students</div>
+              </div>
+              <div class="list-actions">
+                <a class="btn btn-primary btn-small" href="/officer/notifications">Send</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="hint">
+            Tip: Use Notifications for job alerts and mentorship updates.
+          </div>
+        </div>
+
+      </div>
+
+      <!-- FOOTER -->
+      <div class="footer">
+        <span>© AENS - TT9L Group 8</span>
+        <span>CSE6214 Software Engineering Fundamentals</span>
+      </div>
+
+      <div class="mmu-footer">
+        Multimedia University | Faculty of Computing & Informatics
+      </div>
+
+    </div>
+  </div>
+
+</body>
+</html>

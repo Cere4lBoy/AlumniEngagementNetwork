@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mentorship Management | AENS</title>
+
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+  <!-- TOP BAR -->
+  <div class="topbar">
+    <div class="brand">
+      <img src="{{ url_for('static', filename='images/logo.png') }}" alt="AENS Logo" height="40">
+
+      <div>
+        <div class="brand-title">Alumni Engagement & Networking System</div>
+        <div class="brand-subtitle">Career Services Officer</div>
+      </div>
+    </div>
+
+    <a href="#" class="topbar-link">Logout</a>
+  </div>
+
+  <!-- LAYOUT -->
+  <div class="layout">
+
+    <!-- SIDEBAR (ONLY ONCE) -->
+    <div class="sidebar">
+
+      <div class="sidebar-profile">
+        <div class="avatar">CS</div>
+        <div class="sidebar-name">Career Officer</div>
+        <div class="sidebar-role">Career Services Officer</div>
+      </div>
+
+<div class="nav">
+  <a class="nav-item" href="/officer/dashboard">
+    <span class="nav-icon">🏠</span> Dashboard
+  </a>
+
+  <a class="nav-item" href="/officer/jobs/create_job">
+    <span class="nav-icon">➕</span> Create Job
+  </a>
+
+  <a class="nav-item" href="/officer/jobs/edit_job">
+    <span class="nav-icon">✏️</span> Edit / Remove Job
+  </a>
+
+  <a class="nav-item" href="/officer/applications">
+    <span class="nav-icon">📄</span> Applications
+  </a>
+
+  <a class="nav-item" href="/officer/mentorship_review">
+    <span class="nav-icon">🤝</span> Mentorship
+  </a>
+
+  <a class="nav-item" href="/officer/notifications">
+    <span class="nav-icon">🔔</span> Notifications
+  </a>
+</div>
+
+
+      <div class="sidebar-footer">
+        <a class="btn btn-secondary btn-full" href="{{ url_for('officer_bp.dashboard') }}">
+  Back to Dashboard
+</a>
+
+      </div>
+
+    </div>
+
+    <!-- CONTENT -->
+    <div class="content">
+
+      <div class="content-header">
+        <div>
+          <div class="page-title">Mentorship Management</div>
+          <div class="page-subtitle">
+            Review mentorship requests, approve/reject, assign mentors, and monitor progress.
+          </div>
+        </div>
+      </div>
+
+      <!-- TOP STATS -->
+      <div class="stats">
+        <div class="card stat-card">
+          <div class="stat-label">Pending Requests</div>
+          <div class="stat-value">6</div>
+          <div class="stat-hint">Waiting for review</div>
+        </div>
+
+        <div class="card stat-card">
+          <div class="stat-label">Approved</div>
+          <div class="stat-value">9</div>
+          <div class="stat-hint">Ready for assignment</div>
+        </div>
+
+        <div class="card stat-card">
+          <div class="stat-label">Assigned</div>
+          <div class="stat-value">7</div>
+          <div class="stat-hint">Mentor linked</div>
+        </div>
+
+        <div class="card stat-card">
+          <div class="stat-label">Active Mentorships</div>
+          <div class="stat-value">5</div>
+          <div class="stat-hint">Ongoing progress</div>
+        </div>
+      </div>
+
+      <!-- TWO PANELS -->
+      <div class="grid-2">
+
+        <!-- PENDING REQUESTS -->
+        <div class="card" style="margin-top: 14px;">
+          <div class="card-header">
+            <div class="card-title">Pending Mentorship Requests</div>
+            <span class="link">Review</span>
+          </div>
+
+          <div class="list">
+
+            <div class="list-item">
+              <div>
+                <div class="list-title">Student: Narmatha (Software Engineering)</div>
+                <div class="list-subtitle">Interest: UI/UX | Goal: Industry mentorship</div>
+              </div>
+              <div class="list-actions">
+                <button class="btn btn-secondary btn-small">Reject</button>
+                <button class="btn btn-primary btn-small">Approve</button>
+              </div>
+            </div>
+
+            <div class="list-item">
+              <div>
+                <div class="list-title">Student: Amir (Data Track)</div>
+                <div class="list-subtitle">Interest: Data Science | Goal: Career guidance</div>
+              </div>
+              <div class="list-actions">
+                <button class="btn btn-secondary btn-small">Reject</button>
+                <button class="btn btn-primary btn-small">Approve</button>
+              </div>
+            </div>
+
+            <div class="list-item">
+              <div>
+                <div class="list-title">Student: Taseen (Networks)</div>
+                <div class="list-subtitle">Interest: Cybersecurity | Goal: Mentor matching</div>
+              </div>
+              <div class="list-actions">
+                <button class="btn btn-secondary btn-small">Reject</button>
+                <button class="btn btn-primary btn-small">Approve</button>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="hint">
+            Tip: Approve updates request status to “Approved”, then you can assign an alumni mentor.
+          </div>
+        </div>
+
+        <!-- ASSIGN MENTOR -->
+        <div class="card" style="margin-top: 14px;">
+          <div class="card-header">
+            <div class="card-title">Assign Mentor (Approved Requests)</div>
+            <span class="link">Assign</span>
+          </div>
+
+          <form class="form" action="#" method="post">
+
+            <div class="form-row">
+              <div class="label">Select Approved Request</div>
+              <select class="input" name="request_id">
+                <option value="">-- Choose request --</option>
+                <option value="REQ-101">REQ-101 | Narmatha | UI/UX</option>
+                <option value="REQ-102">REQ-102 | Amir | Data Science</option>
+                <option value="REQ-103">REQ-103 | Taseen | Cybersecurity</option>
+              </select>
+            </div>
+
+            <div class="form-row">
+              <div class="label">Available Alumni Mentors</div>
+              <select class="input" name="mentor_id">
+                <option value="">-- Choose mentor --</option>
+                <option value="M-01">Alumni: Aina | UI/UX Lead | 5 years</option>
+                <option value="M-02">Alumni: Kumar | Security Engineer | 4 years</option>
+                <option value="M-03">Alumni: Farah | Data Analyst | 3 years</option>
+              </select>
+            </div>
+
+            <div class="form-row">
+              <div class="label">Assignment Notes (Optional)</div>
+              <textarea class="input" name="assign_notes" rows="4" placeholder="Any notes for mentor/student..."></textarea>
+            </div>
+
+            <div class="form-actions">
+              <button type="reset" class="btn btn-secondary">Cancel</button>
+              <button type="submit" class="btn btn-primary">Confirm Assignment</button>
+            </div>
+
+          </form>
+
+          <div class="hint">
+            Tip: System should notify both student and mentor after successful assignment.
+          </div>
+        </div>
+
+      </div>
+
+      <!-- MONITOR PROGRESS -->
+      <div class="card" style="margin-top: 14px;">
+        <div class="card-header">
+          <div class="card-title">Monitor Mentorship Progress</div>
+          <span class="link">Progress</span>
+        </div>
+
+        <div class="table-wrap">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Record ID</th>
+                <th>Student</th>
+                <th>Mentor</th>
+                <th>Start Date</th>
+                <th>Status</th>
+                <th class="text-right">Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>MS-201</td>
+                <td>Narmatha</td>
+                <td>Aina</td>
+                <td>28 Jan 2026</td>
+                <td><span class="badge badge-green">Active</span></td>
+                <td class="text-right"><button class="btn btn-secondary btn-small">View</button></td>
+              </tr>
+              <tr>
+                <td>MS-202</td>
+                <td>Amir</td>
+                <td>Farah</td>
+                <td>20 Jan 2026</td>
+                <td><span class="badge badge-yellow">Inactive</span></td>
+                <td class="text-right"><button class="btn btn-secondary btn-small">View</button></td>
+              </tr>
+              <tr>
+                <td>MS-203</td>
+                <td>Taseen</td>
+                <td>Kumar</td>
+                <td>15 Jan 2026</td>
+                <td><span class="badge badge-green">Completed</span></td>
+                <td class="text-right"><button class="btn btn-secondary btn-small">View</button></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- NOTES BOX -->
+        <div class="card" style="margin-top: 14px; box-shadow:none;">
+          <div class="card-header">
+            <div class="card-title">Monitoring Notes (Preview)</div>
+            <span class="link">UI only</span>
+          </div>
+
+          <form class="form" action="#" method="post">
+            <div class="form-row">
+              <div class="label">Select Mentorship Record</div>
+              <select class="input" name="record_id">
+                <option value="">-- Select record --</option>
+                <option value="MS-201">MS-201 | Narmatha - Aina</option>
+                <option value="MS-202">MS-202 | Amir - Farah</option>
+                <option value="MS-203">MS-203 | Taseen - Kumar</option>
+              </select>
+            </div>
+
+            <div class="form-row">
+              <div class="label">Notes / Observations</div>
+              <textarea class="input" name="notes" rows="4" placeholder="Write monitoring notes here..."></textarea>
+            </div>
+
+            <div class="form-actions">
+              <button type="reset" class="btn btn-secondary">Clear</button>
+              <button type="submit" class="btn btn-primary">Save Notes</button>
+            </div>
+          </form>
+        </div>
+
+      </div>
+
+      <!-- FOOTER -->
+      <div class="footer">
+        <span>© AENS - TT9L Group 8</span>
+        <span>CSE6214 Software Engineering Fundamentals</span>
+      </div>
+
+      <div class="mmu-footer">
+        Multimedia University | Faculty of Computing & Informatics
+      </div>
+
+    </div>
+
+  </div>
+
+</body>
+</html>

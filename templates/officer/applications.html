@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Job Applications | AENS</title>
+
+  <!-- Link your CSS -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+<body>
+
+  <!-- TOP BAR -->
+  <div class="topbar">
+    <div class="brand">
+      <img src="{{ url_for('static', filename='images/logo.png') }}" alt="AENS Logo" height="40">
+      
+      <div>
+        <div class="brand-title">Alumni Engagement & Networking System</div>
+        <div class="brand-subtitle">Career Services Officer</div>
+      </div>
+    </div>
+
+    <a href="#" class="topbar-link">Logout</a>
+  </div>
+
+  <!-- LAYOUT -->
+  <div class="layout">
+
+    <!-- SIDEBAR -->
+    <div class="sidebar">
+
+      <div class="sidebar-profile">
+        <div class="avatar">CS</div>
+        <div class="sidebar-name">Career Officer</div>
+        <div class="sidebar-role">Career Services Officer</div>
+      </div>
+
+<div class="nav">
+  <a class="nav-item" href="/officer/dashboard">
+    <span class="nav-icon">🏠</span> Dashboard
+  </a>
+
+  <a class="nav-item" href="/officer/jobs/create_job">
+    <span class="nav-icon">➕</span> Create Job
+  </a>
+
+  <a class="nav-item" href="/officer/jobs/edit_job">
+    <span class="nav-icon">✏️</span> Edit / Remove Job
+  </a>
+
+  <a class="nav-item" href="/officer/applications">
+    <span class="nav-icon">📄</span> Applications
+  </a>
+
+  <a class="nav-item" href="/officer/mentorship_review">
+    <span class="nav-icon">🤝</span> Mentorship
+  </a>
+
+  <a class="nav-item" href="/officer/notifications">
+    <span class="nav-icon">🔔</span> Notifications
+  </a>
+</div>
+
+
+      <div class="sidebar-footer">
+        <a class="btn btn-secondary btn-full" href="{{ url_for('officer_bp.dashboard') }}">
+  Back to Dashboard
+</a>
+
+      </div>
+
+    </div>
+
+    <!-- CONTENT -->
+    <div class="content">
+
+      <div class="content-header">
+        <div>
+          <div class="page-title">Job Applications</div>
+          <div class="page-subtitle">
+            View all job applications submitted by students and alumni. Filter by job posting and status.
+          </div>
+        </div>
+      </div>
+
+      <!-- FILTER CARD -->
+      <div class="card" style="margin-top: 18px;">
+        <div class="card-header">
+          <div class="card-title">Filter Applications</div>
+          <span class="link">Optional</span>
+        </div>
+
+        <form class="form" action="#" method="get">
+          <div class="grid-2">
+
+            <div class="form-row">
+              <div class="label">Select Job Posting</div>
+              <select class="input" name="job_id">
+                <option value="all">All Job Postings</option>
+                <option value="1">Software Engineer Intern (TechNova)</option>
+                <option value="2">Data Analyst (InsightLab)</option>
+                <option value="3">UI/UX Designer (PixelWorks)</option>
+              </select>
+            </div>
+
+            <div class="form-row">
+              <div class="label">Application Status</div>
+              <select class="input" name="status">
+                <option value="all">All</option>
+                <option value="pending">Pending</option>
+                <option value="reviewed">Reviewed</option>
+                <option value="shortlisted">Shortlisted</option>
+                <option value="rejected">Rejected</option>
+              </select>
+            </div>
+
+          </div>
+
+          <div class="grid-2">
+            <div class="form-row">
+              <div class="label">Search Applicant (Name / ID)</div>
+              <input class="input" type="text" name="search" placeholder="e.g. Narmatha / 242UC241HB">
+            </div>
+
+            <div class="form-row">
+              <div class="label">Sort By</div>
+              <select class="input" name="sort">
+                <option value="latest">Latest</option>
+                <option value="oldest">Oldest</option>
+                <option value="name">Applicant Name</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-actions">
+            <button type="reset" class="btn btn-secondary">Clear</button>
+            <button type="submit" class="btn btn-primary">Apply Filter</button>
+          </div>
+        </form>
+      </div>
+
+      <!-- APPLICATIONS TABLE -->
+      <div class="card" style="margin-top: 14px;">
+        <div class="card-header">
+          <div class="card-title">Applications List</div>
+          <a class="link" href="#">Export (optional)</a>
+        </div>
+
+        <div class="table-wrap">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>App ID</th>
+                <th>Applicant Name</th>
+                <th>Role Applied</th>
+                <th>Date</th>
+                <th>Status</th>
+                <th class="text-right">Action</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <tr>
+                <td>APP-001</td>
+                <td>Narmatha</td>
+                <td>Software Engineer Intern</td>
+                <td>01 Feb 2026</td>
+                <td><span class="badge badge-yellow">Pending</span></td>
+                <td class="text-right">
+                  <button class="btn btn-secondary btn-small">View</button>
+                </td>
+              </tr>
+
+              <tr>
+                <td>APP-002</td>
+                <td>Taseen</td>
+                <td>Data Analyst</td>
+                <td>31 Jan 2026</td>
+                <td><span class="badge badge-green">Reviewed</span></td>
+                <td class="text-right">
+                  <button class="btn btn-secondary btn-small">View</button>
+                </td>
+              </tr>
+
+              <tr>
+                <td>APP-003</td>
+                <td>Amir</td>
+                <td>UI/UX Designer</td>
+                <td>30 Jan 2026</td>
+                <td><span class="badge badge-green">Shortlisted</span></td>
+                <td class="text-right">
+                  <button class="btn btn-secondary btn-small">View</button>
+                </td>
+              </tr>
+
+              <tr>
+                <td>APP-004</td>
+                <td>Iman</td>
+                <td>Software Engineer Intern</td>
+                <td>29 Jan 2026</td>
+                <td><span class="badge badge-yellow">Pending</span></td>
+                <td class="text-right">
+                  <button class="btn btn-secondary btn-small">View</button>
+                </td>
+              </tr>
+
+            </tbody>
+          </table>
+        </div>
+
+        <div class="hint">
+          Tip: In Flask, clicking “View” should open applicant details (profile, resume link, and application status update).
+        </div>
+      </div>
+
+      <!-- OPTIONAL: APPLICANT DETAIL (UI ONLY) -->
+      <div class="card" style="margin-top: 14px;">
+        <div class="card-header">
+          <div class="card-title">Applicant Details (Preview)</div>
+          <span class="link">UI only</span>
+        </div>
+
+        <div class="grid-2">
+          <div class="card" style="box-shadow:none;">
+            <div class="card-title">Basic Info</div>
+            <p class="page-subtitle" style="margin-top:10px;">
+              <b>Name:</b> Narmatha<br>
+              <b>Student ID:</b> 242UC241HB<br>
+              <b>Email:</b> narmatha@example.com<br>
+              <b>Program:</b> Software Engineering<br>
+            </p>
+          </div>
+
+          <div class="card" style="box-shadow:none;">
+            <div class="card-title">Application</div>
+            <p class="page-subtitle" style="margin-top:10px;">
+              <b>Role:</b> Software Engineer Intern<br>
+              <b>Status:</b> Pending<br>
+              <b>Submitted:</b> 01 Feb 2026<br>
+              <b>Resume:</b> (link later)<br>
+            </p>
+          </div>
+        </div>
+
+        <div class="form-actions" style="margin-top: 10px;">
+          <button class="btn btn-secondary">Reject</button>
+          <button class="btn btn-secondary">Mark Reviewed</button>
+          <button class="btn btn-primary">Shortlist</button>
+        </div>
+      </div>
+
+      <!-- FOOTER -->
+      <div class="footer">
+        <span>© AENS - TT9L Group 8</span>
+        <span>CSE6214 Software Engineering Fundamentals</span>
+      </div>
+
+      <div class="mmu-footer">
+        Multimedia University | Faculty of Computing & Informatics
+      </div>
+
+    </div>
+  </div>
+
+</body>
+</html>

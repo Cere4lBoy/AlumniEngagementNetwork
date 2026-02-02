@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Create Job Posting | AENS</title>
+
+  <!-- Link your CSS -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+</head>
+
+<body>
+
+  <!-- TOP BAR -->
+  <div class="topbar">
+    <div class="brand">
+      <img src="{{ url_for('static', filename='images/logo.png') }}" alt="AENS Logo" height="40">
+
+      <div>
+        <div class="brand-title">Alumni Engagement & Networking System</div>
+        <div class="brand-subtitle">Career Services Officer</div>
+      </div>
+    </div>
+
+    <a href="#" class="topbar-link">Logout</a>
+  </div>
+
+  <!-- LAYOUT -->
+  <div class="layout">
+
+    <!-- SIDEBAR -->
+    <div class="sidebar">
+
+      <div class="sidebar-profile">
+        <div class="avatar">CS</div>
+        <div class="sidebar-name">Career Officer</div>
+        <div class="sidebar-role">Career Services Officer</div>
+      </div>
+
+<div class="nav">
+  <a class="nav-item" href="/officer/dashboard">
+    <span class="nav-icon">🏠</span> Dashboard
+  </a>
+
+  <a class="nav-item" href="/officer/jobs/create_job">
+    <span class="nav-icon">➕</span> Create Job
+  </a>
+
+  <a class="nav-item" href="/officer/jobs/edit_job">
+    <span class="nav-icon">✏️</span> Edit / Remove Job
+  </a>
+
+  <a class="nav-item" href="/officer/applications">
+    <span class="nav-icon">📄</span> Applications
+  </a>
+
+  <a class="nav-item" href="/officer/mentorship_review">
+    <span class="nav-icon">🤝</span> Mentorship
+  </a>
+
+  <a class="nav-item" href="/officer/notifications">
+    <span class="nav-icon">🔔</span> Notifications
+  </a>
+</div>
+
+
+
+      <div class="sidebar-footer">
+        <a class="btn btn-secondary btn-full" href="{{ url_for('officer_bp.dashboard') }}">
+  Back to Dashboard
+</a>
+
+      </div>
+
+    </div>
+
+    <!-- CONTENT -->
+    <div class="content">
+
+      <div class="content-header">
+        <div>
+          <div class="page-title">Create Job Posting</div>
+          <div class="page-subtitle">
+            Fill in the job details and submit to publish. (Validation can be added later in Flask)
+          </div>
+        </div>
+      </div>
+
+      <!-- FORM CARD -->
+      <div class="card" style="margin-top: 18px;">
+        <div class="card-header">
+          <div class="card-title">Job Details</div>
+          <span class="link">Required fields *</span>
+        </div>
+
+        <form class="form" action="#" method="post">
+
+          <div class="grid-2">
+            <div class="form-row">
+              <div class="label">Job Title *</div>
+              <input class="input" type="text" name="job_title" placeholder="e.g. Software Engineer Intern" required>
+            </div>
+
+            <div class="form-row">
+              <div class="label">Company *</div>
+              <input class="input" type="text" name="company" placeholder="e.g. TechNova Sdn Bhd" required>
+            </div>
+          </div>
+
+          <div class="grid-2">
+            <div class="form-row">
+              <div class="label">Job Type</div>
+              <select class="input" name="job_type">
+                <option value="Internship">Internship</option>
+                <option value="Full-Time">Full-Time</option>
+                <option value="Part-Time">Part-Time</option>
+                <option value="Contract">Contract</option>
+              </select>
+            </div>
+
+            <div class="form-row">
+              <div class="label">Application Deadline *</div>
+              <input class="input" type="date" name="deadline" required>
+            </div>
+          </div>
+
+          <div class="grid-2">
+            <div class="form-row">
+              <div class="label">Location</div>
+              <input class="input" type="text" name="location" placeholder="e.g. Cyberjaya / Remote">
+            </div>
+
+            <div class="form-row">
+              <div class="label">Salary Range</div>
+              <input class="input" type="text" name="salary" placeholder="e.g. RM1200 - RM1800">
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="label">Job Description *</div>
+            <textarea class="input" name="description" rows="5" placeholder="Enter job description..." required></textarea>
+          </div>
+
+          <div class="form-row">
+            <div class="label">Requirements *</div>
+            <textarea class="input" name="requirements" rows="5" placeholder="Enter job requirements..." required></textarea>
+          </div>
+
+          <div class="form-row">
+            <div class="label">Additional Notes (Optional)</div>
+            <textarea class="input" name="notes" rows="3" placeholder="Extra info (optional)"></textarea>
+          </div>
+
+          <!-- SUMMARY (nice UI block) -->
+          <div class="summary">
+            <div class="summary-item">
+              <div class="summary-label">Visibility</div>
+              <div class="summary-value">Students + Alumni</div>
+            </div>
+            <div class="summary-item">
+              <div class="summary-label">Status</div>
+              <div class="summary-value">Published</div>
+            </div>
+            <div class="summary-item">
+              <div class="summary-label">Notification</div>
+              <div class="summary-value">Optional</div>
+            </div>
+          </div>
+
+          <div class="hint">
+            Tip: You can connect this form to Flask later using POST request, validate inputs, then save into database.
+          </div>
+
+          <div class="form-actions">
+            <button type="reset" class="btn btn-secondary">Clear</button>
+            <button type="submit" class="btn btn-primary">Publish Job</button>
+          </div>
+
+        </form>
+      </div>
+
+      <!-- FOOTER -->
+      <div class="footer">
+        <span>© AENS - TT9L Group 8</span>
+        <span>CSE6214 Software Engineering Fundamentals</span>
+      </div>
+
+      <div class="mmu-footer">
+        Multimedia University | Faculty of Computing & Informatics
+      </div>
+
+    </div>
+  </div>
+
+</body>
+</html>

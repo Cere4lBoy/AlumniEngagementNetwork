@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Content Moderation</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='/css/style.css') }}">
+</head>
+<body>
+    {% include 'admin/sidebar.html' %}
+
+    <div class="main-content">
+        <div class="page-header">
+            <div class="page-title">Content Moderation (Item 56/57)</div>
+        </div>
+        <div class="card">
+            <h3>Pending Testimonials</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>User</th>
+                        <th>Message</th>
+                        <th>Status</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Michael Lee</td>
+                        <td>"Great networking event last night!"</td>
+                        <td><span class="status-badge status-pending">Pending</span></td>
+                        <td>
+                            <button class="btn btn-primary">Approve</button>
+                            <button class="btn btn-danger">Reject</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

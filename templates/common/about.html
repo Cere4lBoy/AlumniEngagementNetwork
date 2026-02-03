@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | AENS</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <style>
+        .about-container {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .about-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .about-header h1 {
+            font-size: 32px;
+            margin-bottom: 10px;
+            color: #2e2e2e;
+        }
+
+        .about-header p {
+            font-size: 16px;
+            color: #000000;
+            line-height: 1.6;
+        }
+
+        .members-section {
+            background: #ffffff;
+            border-radius: 8px;
+            border: 1px solid #e5e5e5;
+            padding: 30px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        }
+
+        .members-section h2 {
+            font-size: 22px;
+            margin-bottom: 25px;
+            color: #2e2e2e;
+            text-align: center;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        table thead {
+            background-color: #6f9f7a;
+            color: white;
+        }
+
+        table th {
+            padding: 15px;
+            text-align: left;
+            font-weight: 700;
+            color: white;
+            border: 1px solid #e5e5e5;
+        }
+
+        table td {
+            padding: 15px;
+            border: 1px solid #e5e5e5;
+            color: #2e2e2e;
+        }
+
+        table tbody tr:hover {
+            background-color: #f9f9f9;
+        }
+
+        table tbody tr:nth-child(even) {
+            background-color: #f6f7f6;
+        }
+
+        .no-border {
+            border: none;
+        }
+    </style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<div class="navbar">
+    <div class="logo">
+        <img src="{{ url_for('static', filename='images/logo.png') }}" alt="AENS">
+    </div>
+    <div>
+        <a href="/">Home</a>
+        <a href="/about">About</a>
+        <a href="/logout">Logout</a>
+    </div>
+</div>
+
+<!-- ABOUT SECTION -->
+<div class="about-container">
+    <div class="about-header">
+        <h1>About Us</h1>
+        <p>Alumni Engagement & Networking System - Group Project</p>
+    </div>
+
+    <div class="members-section">
+        <h2>Group Members</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Matric Number</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>TASEEN AHMED</td>
+                    <td>251UC2519N</td>
+                </tr>
+                <tr>
+                    <td>MUHAMMAD AMIR RAHIMI</td>
+                    <td>242UC244G4</td>
+                </tr>
+                <tr>
+                    <td>IMAN THAQIF</td>
+                    <td>242UC245G9</td>
+                </tr>
+                <tr>
+                    <td>NARMATHA A/P PAARTIBAN</td>
+                    <td>242UC244PH</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="portal-footer">
+    © 2026 Alumni Engagement & Networking System
+</footer>
+
+</body>
+</html>

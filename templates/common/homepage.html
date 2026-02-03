@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home | AENS</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+<!-- NAVBAR -->
+<div class="navbar">
+    <div class="logo">
+        <img src="{{ url_for('static', filename='images/logo.png') }}" alt="AENS">
+    </div>
+    <div>
+        <a href="/notifications">Notifications</a>
+        <a href="/logout">Logout</a>
+    </div>
+</div>
+
+<!-- MAIN LAYOUT -->
+<div class="layout">
+
+    <!-- LEFT SIDEBAR -->
+    <aside class="sidebar">
+        <div class="profile">
+            <img src="{{ url_for('static', filename='images/profilepic.webp') }}">
+            <div>
+                <strong>John Doe</strong><br>
+                <small>Alumni</small>
+            </div>
+        </div>
+
+        <ul>
+            <li class="active">Home</li>
+            <li>Profile</li>
+            <li>Events</li>
+            <li>Jobs</li>
+            <li>Mentorship</li>
+        </ul>
+
+        <div class="btn-new">+ Create Post</div>
+    </aside>
+
+    <!-- FEED -->
+    <main class="feed">
+
+        <!-- CREATE POST -->
+        <div class="card post-box">
+            <textarea rows="3" placeholder="What’s on your mind?"></textarea>
+            <div class="actions">
+                <span></span>
+                <button class="btn">Post</button>
+            </div>
+        </div>
+
+        <!-- POST CARD -->
+        <div class="card">
+            <strong>Jane Alumni</strong>
+            <p style="margin-top:10px;">
+                Excited to share my journey after graduation!
+            </p>
+        </div>
+
+        <div class="card">
+            <strong>Career Services</strong>
+            <p style="margin-top:10px;">
+                New job opportunities have been posted. Check them out!
+            </p>
+        </div>
+
+    </main>
+
+    <!-- RIGHT PANEL -->
+    <aside class="right-panel">
+
+        <div class="card search-box">
+            <input type="text" placeholder="Search alumni...">
+        </div>
+
+        <div class="card">
+            <h4>Suggested Connections</h4>
+
+            <div class="suggestion">
+                <img src="{{ url_for('static', filename='images/profilepic.webp') }}">
+                <span>Ahmad Z.</span>
+            </div>
+
+            <div class="suggestion">
+                <img src="{{ url_for('static', filename='images/profilepic.webp') }}">
+                <span>Sarah L.</span>
+            </div>
+
+        </div>
+
+    </aside>
+
+</div>
+
+</body>
+</html>

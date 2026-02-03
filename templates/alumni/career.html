@@ -1,0 +1,14 @@
+{% extends "common/base.html" %}
+{% block content %}
+
+<div class="card">
+    <h2>Career Information</h2>
+    <form method="POST">
+        <input type="text" name="company" placeholder="Company">
+        <input type="text" name="job_title" placeholder="Job Title">
+        <textarea name="description" placeholder="Career Description"></textarea>
+        <button class="btn">Update Career</button>
+    </form>
+</div>
+
+{% endblock %}

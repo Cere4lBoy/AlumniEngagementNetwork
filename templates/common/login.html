@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login | AENS</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+<div class="auth-container">
+
+    <!-- LEFT PANEL -->
+    <div class="auth-left">
+        <img src="{{ url_for('static', filename='images/logo.png') }}" class="auth-logo">
+        <h1>Alumni Engagement &<br>Networking System</h1>
+        <p>#Our Legacy, Your Future</p>
+    </div>
+
+
+    <!-- RIGHT PANEL -->
+    <div class="auth-right">
+        <div class="auth-box">
+            <h2>Log In</h2>
+
+            <form method="POST">
+                <label>Email</label>
+                <input type="email" name="email" required>
+
+                <label>Password</label>
+                <input type="password" name="password" required>
+
+                <button class="btn" type="submit">Log In</button>
+            </form>
+
+            <p style="margin-top:15px;">
+                Don’t have an account?
+                <a href="/user-selection">Sign Up</a>
+            </p>
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>

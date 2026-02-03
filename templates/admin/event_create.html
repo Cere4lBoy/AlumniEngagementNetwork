@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Create Event</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='/css/style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header class="main-header">
+        <div class="header-content">
+            <a href="{{ url_for('admin_dashboard') }}" class="header-logo">
+                <img src="{{ url_for('static', filename='images/logo.png') }}" alt="AENS Logo">
+            </a>
+            <a href="/" class="logout-link">LOGOUT</a>
+        </div>
+    </header>
+
+    <div class="page-wrapper">
+        {% include 'admin/sidebar.html' %}
+
+        <div class="main-content">
+            <div class="page-header">
+                <div style="display: flex; align-items: center; gap: 10px;">
+                    <a href="{{ url_for('admin_manage_events') }}" style="color: #666; font-size: 18px;"><i class="fa-solid fa-arrow-left"></i></a>
+                    <div class="page-title">Create Event</div>
+                </div>
+            </div>
+
+            <div class="card" style="max-width: 900px;">
+                <form action="{{ url_for('admin_create_event') }}" method="POST">
+                    <div class="form-grid-2">
+                        <div class="form-group">
+                            <label class="form-label" style="color: var(--primary-green);">Name of the Event</label>
+                            <input type="text" name="name" class="form-control" placeholder="Save The World Concert" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" style="color: var(--primary-green);">Type of Event</label>
+                            <input type="text" name="type" class="form-control" placeholder="Music" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group" style="width: 50%;">
+                        <label class="form-label" style="color: var(--primary-green);">Date of Event</label>
+                        <input type="date" id="eventDate" name="date" class="form-control" required>
+                    </div>
+
+                    <div class="form-grid-2">
+                        <div class="form-group">
+                            <label class="form-label" style="color: var(--primary-green);">Event Starts</label>
+                            <input type="time" id="startTime" name="start" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" style="color: var(--primary-green);">Event Ends</label>
+                            <input type="time" id="endTime" name="end" class="form-control" required>
+                        </div>
+                    </div>
+
+                    <div class="form-grid-2">
+                        <div class="form-group">
+                            <label class="form-label" style="color: var(--primary-green);">Event Price</label>
+                            <input type="text" name="price" class="form-control" placeholder="$5.00">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" style="color: var(--primary-green);">Misc. Info</label>
+                            <input type="text" name="info" class="form-control">
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary" style="margin-top: 20px;">Create Event</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const dateInput = document.getElementById('eventDate');
+            const timeInput = document.getElementById('startTime');
+            const now = new Date();
+            const todayStr = now.toISOString().split('T')[0];
+            dateInput.setAttribute('min', todayStr);
+
+            function validate() {
+                if(dateInput.value === todayStr && timeInput.value) {
+                    const curTime = new Date().toTimeString().slice(0,5);
+                    if(timeInput.value < curTime) {
+                        alert("Cannot select past time!");
+                        timeInput.value = "";
+                    }
+                }
+            }
+            dateInput.addEventListener('change', validate);
+            timeInput.addEventListener('change', validate);
+        });
+    </script>
+</body>
+</html>

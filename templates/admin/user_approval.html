@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Approve Users</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='/css/style.css') }}">
+</head>
+<body>
+    {% include 'admin/sidebar.html' %}
+
+    <div class="main-content">
+        <div class="page-header">
+            <div class="page-title">Approve New Users (Item 48)</div>
+        </div>
+        <div class="card">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Role Requested</th>
+                        <th>Date</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Jane Doe</strong><br><span style="font-size:12px; color:#888;">jane@example.com</span></td>
+                        <td>Alumni</td>
+                        <td>Oct 24, 2025</td>
+                        <td>
+                            <button class="btn btn-primary">Approve</button>
+                            <button class="btn btn-danger">Reject</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>Sam Wilson</strong><br><span style="font-size:12px; color:#888;">sam@student.mmu.edu.my</span></td>
+                        <td>Student</td>
+                        <td>Oct 25, 2025</td>
+                        <td>
+                            <button class="btn btn-primary">Approve</button>
+                            <button class="btn btn-danger">Reject</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Mentorship Requests | Admin</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='/css/style.css') }}">
+</head>
+<body>
+    {% include 'admin/sidebar.html' %}
+    <div class="main-content">
+        <div class="page-header">
+            <div class="page-title">Approve Mentorship Requests</div>
+        </div>
+
+        <div class="card">
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Student (Mentee)</th>
+                            <th>Requested Mentor</th>
+                            <th>Goal/Interest</th>
+                            <th>Status</th>
+                            <th>Decision</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Sarah Lee (Student)</td>
+                            <td>Dr. Ravi (Alumni)</td>
+                            <td>Software Engineering Career Path</td>
+                            <td><span class="status-badge status-pending">Pending</span></td>
+                            <td>
+                                <button class="btn btn-primary">Approve</button>
+                                <button class="btn btn-danger">Reject</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

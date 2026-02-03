@@ -1,0 +1,82 @@
+<div class="sidebar">
+    <div class="logo-container" style="text-align: center; margin-bottom: 30px; padding: 0 10px;">
+        <div style="background-color: #6f9f7a; padding: 10px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+            <img src="{{ url_for('static', filename='images/logo.png') }}" 
+                 alt="AENS Logo" 
+                 style="max-width: 180px; width: 100%; height: auto; display: block; margin: 0 auto;">
+        </div>
+    </div>
+
+    <div style="text-align: center; margin-bottom: 20px;">
+        <b>ADMIN PANEL</b>
+    </div> 
+      
+    <nav class="nav-links">
+
+        <a href="{{ url_for('admin_dashboard') }}"
+           class="{{ 'active' if request.endpoint == 'admin_dashboard' else '' }}">
+            📊 Dashboard (47)
+        </a>
+        
+        <div style="font-size: 11px; color: #8a8a8a; margin: 20px 15px 5px; font-weight: bold; letter-spacing: 0.5px;">
+            USER ADMIN
+        </div>
+        
+        <a href="{{ url_for('admin_approve_users') }}"
+           class="{{ 'active' if request.endpoint == 'admin_approve_users' else '' }}">
+            Approve Users (48)
+        </a>
+
+        <a href="{{ url_for('admin_suspend_users') }}"
+           class="{{ 'active' if request.endpoint == 'admin_suspend_users' else '' }}">
+            Suspend/Activate (49)
+        </a>
+
+        <a href="{{ url_for('admin_assign_roles') }}"
+           class="{{ 'active' if request.endpoint == 'admin_assign_roles' else '' }}">
+            Assign Roles (50)
+        </a>
+
+        <a href="{{ url_for('admin_reset_password') }}"
+           class="{{ 'active' if request.endpoint == 'admin_reset_password' else '' }}">
+            Reset Password (51)
+        </a>
+
+        <div style="font-size: 11px; color: #8a8a8a; margin: 20px 15px 5px; font-weight: bold; letter-spacing: 0.5px;">
+            EVENTS
+        </div>
+        
+        <a href="{{ url_for('admin_manage_events') }}"
+           class="{{ 'active' if request.endpoint == 'admin_manage_events' else '' }}">
+            Create/Edit Events (52/53)
+        </a>
+
+        <a href="{{ url_for('admin_publish_announcement') }}"
+           class="{{ 'active' if request.endpoint == 'admin_publish_announcement' else '' }}">
+            Publish Announcement (55)
+        </a>
+
+        <div style="font-size: 11px; color: #8a8a8a; margin: 20px 15px 5px; font-weight: bold; letter-spacing: 0.5px;">
+            SYSTEM
+        </div>
+        
+        <a href="{{ url_for('admin_manage_testimonials') }}"
+           class="{{ 'active' if request.endpoint == 'admin_manage_testimonials' else '' }}">
+            Moderation (56/57)
+        </a>
+
+        <a href="{{ url_for('admin_send_notification') }}"
+           class="{{ 'active' if request.endpoint == 'admin_send_notification' else '' }}">
+            System Notification (58)
+        </a>
+
+        <a href="{{ url_for('admin_system_settings') }}"
+           class="{{ 'active' if request.endpoint == 'admin_system_settings' else '' }}">
+            Settings (59)
+        </a>
+        
+        <a href="{{ url_for('logout') }}" style="margin-top: 30px; color: #e74c3c; font-weight: bold;">
+            🚪 Logout
+        </a>
+    </nav>
+</div>

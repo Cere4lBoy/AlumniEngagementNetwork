@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Notifications | AENS</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+<!-- NAVBAR -->
+<div class="navbar">
+    <div class="logo">
+        <img src="{{ url_for('static', filename='images/logo.png') }}" alt="AENS">
+    </div>
+    <div>
+        <a href="/home">Home</a>
+        <a href="/logout">Logout</a>
+    </div>
+</div>
+
+<!-- MAIN LAYOUT -->
+<div class="layout">
+
+    <!-- LEFT SIDEBAR -->
+    <aside class="sidebar">
+        <ul>
+            <li><a href="/home">Home</a></li>
+            <li class="active">Notifications</li>
+            <li>Events</li>
+            <li>Jobs</li>
+            <li>Mentorship</li>
+        </ul>
+    </aside>
+
+    <!-- NOTIFICATIONS FEED -->
+    <main class="feed">
+
+        <h2>Notifications</h2>
+
+        <!-- Notification Card -->
+        <div class="card notification unread">
+            <strong>New Event Available</strong>
+            <p>Alumni Networking Night has been scheduled.</p>
+            <small>2 hours ago</small>
+        </div>
+
+        <div class="card notification unread">
+            <strong>Job Opportunity</strong>
+            <p>Software Engineer position posted by TechCorp.</p>
+            <small>Yesterday</small>
+        </div>
+
+        <div class="card notification">
+            <strong>Mentorship Update</strong>
+            <p>Your mentorship request has been approved.</p>
+            <small>3 days ago</small>
+        </div>
+
+    </main>
+
+    <!-- RIGHT PANEL -->
+    <aside class="right-panel">
+        <div class="card">
+            <h4>Tips</h4>
+            <p>Check notifications regularly to stay updated.</p>
+        </div>
+    </aside>
+
+</div>
+
+</body>
+</html>

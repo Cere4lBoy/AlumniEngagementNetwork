@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Feedback | Admin</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='/css/style.css') }}">
+</head>
+<body>
+    {% include 'admin/sidebar.html' %}
+    <div class="main-content">
+        <div class="page-header">
+            <div class="page-title">System Feedback</div>
+        </div>
+
+        <div class="card">
+            <div style="border-bottom: 1px solid var(--border-light); padding: 15px 0;">
+                <div style="display:flex; justify-content:space-between;">
+                    <strong>Subject: Event Registration Issue</strong>
+                    <span class="text-muted">Jan 28, 2026</span>
+                </div>
+                <p style="margin: 5px 0;">"I couldn't register for the gala dinner using the mobile view."</p>
+                <button class="btn btn-primary" style="font-size: 12px;">Mark as Reviewed</button>
+                <button class="btn btn-outline" style="font-size: 12px;">Reply</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

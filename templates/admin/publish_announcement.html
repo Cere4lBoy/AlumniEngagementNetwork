@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Publish Announcement | Admin</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='/css/style.css') }}">
+</head>
+<body>
+    {% include 'admin/sidebar.html' %}
+    <div class="main-content">
+        <div class="page-header"><div class="page-title">Publish Event Announcement</div></div>
+        <div class="card">
+            <form>
+                <div class="form-group">
+                    <label class="form-label">Select Event</label>
+                    <select class="form-control">
+                        <option>Alumni Homecoming 2026</option>
+                        <option>Career Fair</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Announcement Message</label>
+                    <textarea class="form-control" rows="4" placeholder="e.g. Early bird tickets are closing soon!"></textarea>
+                </div>
+                <button class="btn btn-primary">Publish to News Feed</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

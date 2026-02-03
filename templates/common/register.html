@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sign Up | AENS</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+<div class="auth-container">
+
+    <!-- LEFT PANEL -->
+    <div class="auth-left">
+        <img src="{{ url_for('static', filename='images/logo.png') }}" class="auth-logo">
+        <h1>Alumni Engagement &<br>Networking System</h1>
+        <p>#Our Legacy, Your Future</p>
+    </div>
+
+    <!-- RIGHT PANEL -->
+    <div class="auth-right">
+        <div class="auth-box">
+            <h2>Sign Up</h2>
+
+            <form method="POST">
+
+                <!-- FULL NAME -->
+                <label>Full Name</label>
+                <input type="text" name="name" required>
+
+                <!-- EMAIL -->
+                <label>Email</label>
+                <input type="email" name="email" required>
+
+                <!-- PHONE NUMBER -->
+                <label>Phone Number</label>
+                <input type="text" name="phone" placeholder="+60" required>
+
+                <!-- ROLE SELECTION -->
+                <label>Role</label>
+                <div class="role-toggle">
+                    <input type="radio" id="student" name="role" value="student" required>
+                    <label for="student">Student</label>
+
+                    <input type="radio" id="alumni" name="role" value="alumni">
+                    <label for="alumni">Alumni</label>
+
+                    <input type="radio" id="admin" name="role" value="admin">
+                    <label for="admin">Admin</label>
+
+                    <input type="radio" id="cso" name="role" value="cso">
+                    <label for="cso">CSO</label>
+                </div>
+
+                <!-- PASSWORD -->
+                <label>Password</label>
+                <input type="password" name="password" required>
+
+                <!-- CONFIRM PASSWORD -->
+                <label>Confirm Password</label>
+                <input type="password" name="confirm_password" required>
+
+                <button class="btn" type="submit">Sign Up</button>
+            </form>
+
+            <p style="margin-top:15px;">
+                Already have an account?
+                <a href="/login">Log In</a>
+            </p>
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>

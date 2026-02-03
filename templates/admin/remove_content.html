@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Remove Content | Admin</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='/css/style.css') }}">
+</head>
+<body>
+    {% include 'admin/sidebar.html' %}
+    <div class="main-content">
+        <div class="page-header"><div class="page-title">Remove Inappropriate Content</div></div>
+
+        <div class="card">
+            <h3>Flagged Content</h3>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Type</th>
+                            <th>Posted By</th>
+                            <th>Content Preview</th>
+                            <th>Reason</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Job Post</td>
+                            <td>John Doe</td>
+                            <td>"Make $5000/day working from home..."</td>
+                            <td><span style="color:var(--danger)">Spam/Scam</span></td>
+                            <td>
+                                <button class="btn btn-danger">Remove</button>
+                                <button class="btn btn-outline">Ignore</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Testimonial</td>
+                            <td>Jane Smith</td>
+                            <td>(Contains offensive language)</td>
+                            <td><span style="color:var(--danger)">Inappropriate</span></td>
+                            <td>
+                                <button class="btn btn-danger">Remove</button>
+                                <button class="btn btn-outline">Ignore</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

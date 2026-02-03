@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>System Notification | Admin</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='/css/style.css') }}">
+</head>
+<body>
+    {% include 'admin/sidebar.html' %}
+    <div class="main-content">
+        <div class="page-header"><div class="page-title">Send System-Wide Notification</div></div>
+        <div class="card" style="border-left: 5px solid var(--primary-green);">
+            <form>
+                <div class="form-group">
+                    <label class="form-label">Subject</label>
+                    <input type="text" class="form-control" placeholder="Important System Update">
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Recipient Group</label>
+                    <select class="form-control">
+                        <option>All Users</option>
+                        <option>Alumni Only</option>
+                        <option>Students Only</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Message Content</label>
+                    <textarea class="form-control" rows="5"></textarea>
+                </div>
+                <button class="btn btn-primary">Broadcast Message</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

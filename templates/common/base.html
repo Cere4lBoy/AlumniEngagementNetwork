@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ title if title else "AENS Portal" }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+<!-- ===== TOP HEADER ===== -->
+<header class="mmu-header">
+    <div class="mmu-header-left">
+        <img src="{{ url_for('static', filename='images/logo.png') }}" class="black-logo">
+        <span class="mmu-title">
+            Welcome to AENS Portal<br>
+            <small>Your Integrated Gateway to Alumni Engagement</small>
+        </span>
+    </div>
+</header>
+
+<!-- ===== HERO SECTION ===== -->
+<section class="portal-hero">
+
+    <!-- ADVERTISEMENT CAROUSEL -->
+    <div class="ad-carousel">
+        <div class="carousel-container">
+            <div class="carousel-slide fade">
+                <img src="{{ url_for('static', filename='images/ad1.png') }}" alt="Ad 1">
+            </div>
+            <div class="carousel-slide fade">
+                <img src="{{ url_for('static', filename='images/ad2.jpg') }}" alt="Ad 2">
+            </div>
+            <div class="carousel-slide fade">
+                <img src="{{ url_for('static', filename='images/ad3.jpg') }}" alt="Ad 3">
+            </div>
+            <div class="carousel-slide fade">
+                <img src="{{ url_for('static', filename='images/ad4.webp') }}" alt="Ad 4">
+            </div>
+
+            <!-- Navigation arrows -->
+            <a class="carousel-prev" onclick="changeSlide(-1)">&#10094;</a>
+            <a class="carousel-next" onclick="changeSlide(1)">&#10095;</a>
+        </div>
+
+        <!-- Dots indicator -->
+        <div class="carousel-dots">
+            <span class="dot" onclick="currentSlide(1)"></span>
+            <span class="dot" onclick="currentSlide(2)"></span>
+            <span class="dot" onclick="currentSlide(3)"></span>
+            <span class="dot" onclick="currentSlide(4)"></span>
+        </div>
+    </div>
+
+</section>
+
+<script>
+let slideIndex = 1;
+let slideTimer;
+
+showSlide(slideIndex);
+autoSlide();
+
+function changeSlide(n) {
+    clearTimeout(slideTimer);
+    showSlide(slideIndex += n);
+    autoSlide();
+}
+
+function currentSlide(n) {
+    clearTimeout(slideTimer);
+    showSlide(slideIndex = n);
+    autoSlide();
+}
+
+function showSlide(n) {
+    let slides = document.getElementsByClassName("carousel-slide");
+    let dots = document.getElementsByClassName("dot");
+
+    if (n > slides.length) {
+        slideIndex = 1;
+    }
+    if (n < 1) {
+        slideIndex = slides.length;
+    }
+
+    for (let i = 0; i < slides.length; i++) {
+        slides[i].classList.remove("active");
+    }
+    for (let i = 0; i < dots.length; i++) {
+        dots[i].classList.remove("active");
+    }
+
+    slides[slideIndex - 1].classList.add("active");
+    dots[slideIndex - 1].classList.add("active");
+}
+
+function autoSlide() {
+    slideTimer = setTimeout(() => {
+        slideIndex++;
+        showSlide(slideIndex);
+        autoSlide();
+    }, 5000);
+}
+</script>
+
+<!-- ===== SERVICE TILES ===== -->
+<section class="portal-services">
+    {% block content %}{% endblock %}
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="portal-footer">
+    © 2026 Alumni Engagement & Networking System
+</footer>
+
+</body>
+</html>

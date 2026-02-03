@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Delete Event | Admin</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='/css/style.css') }}">
+</head>
+<body>
+    {% include 'admin/sidebar.html' %}
+    <div class="main-content">
+        <div class="page-header"><div class="page-title">Confirm Deletion</div></div>
+
+        <div class="card" style="max-width: 600px; margin: 0 auto; text-align: center; border-top: 5px solid var(--danger);">
+            <h2 style="color: var(--danger);">Warning</h2>
+            <p>Are you sure you want to cancel and delete the event <strong>"Alumni Homecoming 2026"</strong>?</p>
+            <p class="text-muted">This action cannot be undone. All registered users will be notified of the cancellation.</p>
+            
+            <div style="margin-top: 30px;">
+                <button class="btn btn-danger">Yes, Delete Event</button>
+                <button class="btn btn-outline" onclick="history.back()">Go Back</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

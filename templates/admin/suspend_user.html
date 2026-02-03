@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Suspend Users | Admin</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='/css/style.css') }}">
+</head>
+<body>
+    {% include 'admin/sidebar.html' %}
+    <div class="main-content">
+        <div class="page-header">
+            <div class="page-title">Suspend / Activate Accounts</div>
+        </div>
+        <div class="card">
+            <div class="form-group">
+                <input type="text" class="form-control" placeholder="Search user by email or ID...">
+            </div>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>User</th>
+                            <th>Role</th>
+                            <th>Current Status</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>John Doe (john@mmu.edu.my)</td>
+                            <td>Student</td>
+                            <td><span class="status-badge status-active">Active</span></td>
+                            <td><button class="btn btn-danger">Suspend</button></td>
+                        </tr>
+                        <tr>
+                            <td>Jane Smith (jane@gmail.com)</td>
+                            <td>Alumni</td>
+                            <td><span class="status-badge" style="background:#e74c3c; color:white;">Suspended</span></td>
+                            <td><button class="btn btn-primary">Activate</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
